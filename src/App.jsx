@@ -3,11 +3,10 @@ import { puppyList } from './data.js'
 import { useState } from 'react'
 
 function App() {
+  // why are we passing in setPuppies?? why do we need if we aren't using?
   const [puppies, setPuppies] = useState(puppyList);
   const [featPupId, setFeatPupId] = useState(null);
   const featuredPup = puppies.find((pup) => pup.id === featPupId)
-
-console.log("puppyList:", featuredPup);
 
   return (
     <>
@@ -21,11 +20,11 @@ console.log("puppyList:", featuredPup);
           featPupId && (
             // use bootstrap components to style???
           <div>
-            <h2>{featuredPup.name}</h2>
-            <ul>
-              <li>Age: {featuredPup.age}</li>
-              <li>Email: {featuredPup.email}</li>
-            </ul>
+            <h2 className='puppy-header'>{featuredPup.name}</h2>
+            
+              <p className='description'>Age: {featuredPup.age}</p>
+              <p className='description'>Email: {featuredPup.email}</p>
+            
           </div>
           )}
       </div>
